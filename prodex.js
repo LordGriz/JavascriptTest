@@ -1,10 +1,9 @@
+const frameName = "iframe.results-detail__iframe";
+
 waitForElements();
 
-
 function waitForElements() {
-  const frameName = "iframe.results-detail__iframe";
-
-  // Filter results
+    // Filter results
   //      
   // Review to zero
   waitForElInFrame(frameName, "#resultsNeedReview-0", function(el) {
@@ -72,15 +71,21 @@ function waitForElements() {
       .html("<div class=\"value1\">NEGATIVE</div>");
   }, 100);  
 
-  window.onbeforeunload = function() { 
-    window.setTimeout(function () { 
-      window.location = 'https://myquest.questdiagnostics.com/dashboard';
-    }, 0); 
-    window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
-  }
+  $("div.myquest-root").on("DOMSubtreeModified", function() {
+   
+      $(frameName).on('load', function() {
+
+        window.onbeforeunload = function() { 
+          window.setTimeout(function () { 
+            window.location = 'https://myquest.questdiagnostics.com/dashboard';
+          }, 0); 
+          window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
+        }            
+      });
+
+  });
   
 }
-
 
 function waitForElInFrame(frame, selector, callback, maxtries = false, interval = 100) { 
   const poller = setInterval(() => {
