@@ -1,7 +1,7 @@
-const frameName = "iframe.results-detail__iframe";
 
 $("div.myquest-root").on("DOMSubtreeModified", function() {
-   
+
+  const frameName = "iframe.results-detail__iframe";
   $(frameName).on('load', function() {
 
     window.onbeforeunload = function() { 
@@ -17,6 +17,8 @@ $("div.myquest-root").on("DOMSubtreeModified", function() {
 waitForElements();
 
 function waitForElements() {
+  const frameName = "iframe.results-detail__iframe";
+  
     // Filter results
   //      
   // Review to zero
