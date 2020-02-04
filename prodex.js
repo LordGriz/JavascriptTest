@@ -8,46 +8,23 @@ targetNodes.each ( function () {
     myObserver.observe (this, obsConfig);
 } );
 
-function mutationHandler (mutationRecords) {
-    console.info ("mutationHandler:");
+waitForElements();
 
-    const frameName = "iframe.results-detail__iframe";
-    $(frameName).on('load', function() {
-  
-      window.onbeforeunload = function() { 
-        window.setTimeout(function () { 
-          window.location = 'https://myquest.questdiagnostics.com/dashboard';
-        }, 0); 
-        window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
-      }            
-    });
+function mutationHandler (mutationRecords) {
+  console.info ("mutationHandler:");
+
+  const frameName = "iframe.results-detail__iframe";
+  $(frameName).on('load', function() {
+
+    window.onbeforeunload = function() { 
+      window.setTimeout(function () { 
+        window.location = 'https://myquest.questdiagnostics.com/dashboard';
+      }, 0); 
+      window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
+    }            
+  });
 }
 
-const targetNode = document.getElementById('some-id');
-
-// Options for the observer (which mutations to observe)
-const config = { attributes: true, childList: true, subtree: true };
-
-// Callback function to execute when mutations are observed
-const callback = function(mutationsList, observer) {
-    // Use traditional 'for loops' for IE 11
-    for(let mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-            console.log('A child node has been added or removed.');
-        }
-        else if (mutation.type === 'attributes') {
-            console.log('The ' + mutation.attributeName + ' attribute was modified.');
-        }
-    }
-};
-
-// Create an observer instance linked to the callback function
-const observer = new MutationObserver(callback);
-
-// Start observing the target node for configured mutations
-observer.observe(targetNode, config);
-
-waitForElements();
 
 function waitForElements() {
   const frameName = "iframe.results-detail__iframe";
