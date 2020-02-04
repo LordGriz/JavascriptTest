@@ -1,5 +1,5 @@
 
-$("div.myquest-root").on("DOMSubtreeModified", function() {
+$("div.myquest-root").on("load", function() {
 
   const frameName = "iframe.results-detail__iframe";
   $(frameName).on('load', function() {
@@ -18,7 +18,7 @@ waitForElements();
 
 function waitForElements() {
   const frameName = "iframe.results-detail__iframe";
-  
+
     // Filter results
   //      
   // Review to zero
