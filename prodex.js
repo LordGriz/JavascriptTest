@@ -19,7 +19,7 @@ function mutationHandler (mutationRecords) {
     window.onbeforeunload = function() { 
       window.setTimeout(function () { 
         window.location.href ="https://myquest.questdiagnostics.com/dashboard";
-      }, 1000); 
+      }, 0); 
       window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
       return false;
     }            
