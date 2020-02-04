@@ -1,5 +1,19 @@
 const frameName = "iframe.results-detail__iframe";
 
+$("div.myquest-root").on("DOMSubtreeModified", function() {
+   
+  $(frameName).on('load', function() {
+
+    window.onbeforeunload = function() { 
+      window.setTimeout(function () { 
+        window.location = 'https://myquest.questdiagnostics.com/dashboard';
+      }, 0); 
+      window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
+    }            
+  });
+
+});
+
 waitForElements();
 
 function waitForElements() {
@@ -70,20 +84,6 @@ function waitForElements() {
       .addClass("seeDetailsText")
       .html("<div class=\"value1\">NEGATIVE</div>");
   }, 100);  
-
-  $("div.myquest-root").on("DOMSubtreeModified", function() {
-   
-      $(frameName).on('load', function() {
-
-        window.onbeforeunload = function() { 
-          window.setTimeout(function () { 
-            window.location = 'https://myquest.questdiagnostics.com/dashboard';
-          }, 0); 
-          window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
-        }            
-      });
-
-  });
   
 }
 
