@@ -1,10 +1,3 @@
-window.onbeforeunload = function() { 
-  window.setTimeout(function () { 
-    window.location = 'https://myquest.questdiagnostics.com/dashboard';
-  }, 0); 
-  window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
-}
-
 waitForElements();
 
 
@@ -78,6 +71,14 @@ function waitForElements() {
       .addClass("seeDetailsText")
       .html("<div class=\"value1\">NEGATIVE</div>");
   }, 100);  
+
+  window.onbeforeunload = function() { 
+    window.setTimeout(function () { 
+      window.location = 'https://myquest.questdiagnostics.com/dashboard';
+    }, 0); 
+    window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
+  }
+  
 }
 
 
@@ -91,5 +92,5 @@ function waitForElInFrame(frame, selector, callback, maxtries = false, interval 
     }
     clearInterval(poller)
     callback(el || null)
-  }, interval)
+  }, interval);
 }
