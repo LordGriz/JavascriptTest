@@ -30,9 +30,9 @@ function waitForElements() {
   const frameName = "iframe.results-detail__iframe";
   
 
-  waitForEl("#rs_AbnormalWarning_txt0-0", function(el) {
-    el.html("&nbsp");
-  }, 100);
+  // waitForEl("#rs_AbnormalWarning_txt0-0", function(el) {
+  //   el.html("&nbsp");
+  // }, 100);
   
 
     // Filter results
