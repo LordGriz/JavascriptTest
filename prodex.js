@@ -117,15 +117,16 @@ function waitForElInFrame(frame, selector, callback, maxtries = false, interval 
     callback(el || null)
   }, interval);
 
-  function waitForElIn(selector, callback, maxtries = false, interval = 100) { 
-    const poller = setInterval(() => {
-      const el = new JQuery(selector);
-      const retry = maxtries === false || maxtries-- > 0
-      if (retry && el.length < 1) {
-        //console.log(`Not found: ${maxtries}`)
-        return // will try again
-      }
-      clearInterval(poller)
-      callback(el || null)
-    }, interval);
+}
+function waitForElIn(selector, callback, maxtries = false, interval = 100) { 
+  const poller = setInterval(() => {
+    const el = new JQuery(selector);
+    const retry = maxtries === false || maxtries-- > 0
+    if (retry && el.length < 1) {
+      //console.log(`Not found: ${maxtries}`)
+      return // will try again
+    }
+    clearInterval(poller)
+    callback(el || null)
+  }, interval);
 }
