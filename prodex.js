@@ -32,7 +32,7 @@ function waitForElements() {
 
   waitForEl("#rs_AbnormalWarning_txt0-0", function(el) {
     el.html("&nbsp");
-  }, 100);
+  }, 20);
   
 
     // Filter results
@@ -118,7 +118,7 @@ function waitForElInFrame(frame, selector, callback, maxtries = false, interval 
   }, interval);
 
 }
-function waitForElIn(selector, callback, maxtries = false, interval = 100) { 
+function waitForEl(selector, callback, maxtries = false, interval = 100) { 
   const poller = setInterval(() => {
     const el = new JQuery(selector);
     const retry = maxtries === false || maxtries-- > 0
