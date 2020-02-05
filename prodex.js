@@ -29,6 +29,12 @@ function mutationHandler (mutationRecords) {
 function waitForElements() {
   const frameName = "iframe.results-detail__iframe";
   
+
+  waitForEl("#rs_AbnormalWarning_txt0-0", function(el) {
+    el.html("&nbsp");
+  }, 100);
+  
+
     // Filter results
   //      
   // Review to zero
@@ -110,4 +116,16 @@ function waitForElInFrame(frame, selector, callback, maxtries = false, interval 
     clearInterval(poller)
     callback(el || null)
   }, interval);
+
+  function waitForElIn(selector, callback, maxtries = false, interval = 100) { 
+    const poller = setInterval(() => {
+      const el = new JQuery(selector);
+      const retry = maxtries === false || maxtries-- > 0
+      if (retry && el.length < 1) {
+        //console.log(`Not found: ${maxtries}`)
+        return // will try again
+      }
+      clearInterval(poller)
+      callback(el || null)
+    }, interval);
 }
