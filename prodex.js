@@ -32,7 +32,7 @@ function waitForElements() {
 
   waitForEl("#rs_AbnormalWarning_txt0-0", function(el) {
     el.html("&nbsp");
-  }, 20);
+  }, 100S);
   
 
     // Filter results
