@@ -9,12 +9,6 @@ var obsConfig           = { childList: true, characterData: true, attributes: tr
 
 waitForElements();
 
-function starter () {
-    alert('so far so good');
-    //--- Add a target node to the observer. Can only add one node at a time.
-   
-}
-
 function mutationHandler (mutationRecords) {
   console.info ("mutationHandler:");
 
