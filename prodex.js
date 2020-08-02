@@ -3,12 +3,14 @@ var MutationObserver    = window.MutationObserver || window.WebKitMutationObserv
 var myObserver          = new MutationObserver (mutationHandler);
 var obsConfig           = { childList: true, characterData: true, attributes: true, subtree: true };
 
-//--- Add a target node to the observer. Can only add one node at a time.
-targetNodes.each ( function () {
-    myObserver.observe (this, obsConfig);
-} );
+function starter () {
+    //--- Add a target node to the observer. Can only add one node at a time.
+    targetNodes.each ( function () {
+        myObserver.observe (this, obsConfig);
+    } );
 
-waitForElements();
+    waitForElements();
+}
 
 function mutationHandler (mutationRecords) {
   console.info ("mutationHandler:");
