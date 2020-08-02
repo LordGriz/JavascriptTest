@@ -129,3 +129,7 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
     callback(el || null)
   }, interval);
 }
+
+function starter() {
+ alert("Started");
+}
