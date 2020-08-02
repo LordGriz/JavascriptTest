@@ -1,3 +1,5 @@
+alert("test");
+
 var targetNodes         = $("div.myquest-root");
 var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
 var myObserver          = new MutationObserver (mutationHandler);
