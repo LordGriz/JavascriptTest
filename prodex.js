@@ -1,54 +1,59 @@
-var targetNodes         = $("div.myquest-root");
-var MutationObserver    = window.MutationObserver || window.WebKitMutationObserver;
-var myObserver          = new MutationObserver (mutationHandler);
-var obsConfig           = { childList: true, characterData: true, attributes: true, subtree: true };
+var targetNodes = $("div.myquest-root");
+var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var myObserver = new MutationObserver(mutationHandler);
+var obsConfig = {
+  childList: true,
+  characterData: true,
+  attributes: true,
+  subtree: true
+};
 
- targetNodes.each ( function () {
-    myObserver.observe (this, obsConfig);
- } );
+targetNodes.each(function () {
+  myObserver.observe(this, obsConfig);
+});
 
 waitForElements();
 
-function mutationHandler (mutationRecords) {
-  console.info ("mutationHandler:");
+function mutationHandler(mutationRecords) {
+  console.info("mutationHandler:");
 
   const frameName = "iframe.results-detail__iframe";
-  $(frameName).on('load', function() {
+  $(frameName).on('load', function () {
 
-    window.onbeforeunload = function() { 
-      window.setTimeout(function () { 
+    window.onbeforeunload = function () {
+      window.setTimeout(function () {
         window.location.replace("https://myquest.questdiagnostics.com/dashboard");
-      }, 0); 
+      }, 0);
       window.onbeforeunload = null; // necessary to prevent infinite loop, that kills your browser 
-    }            
+    }
   });
 }
 
 
 function waitForElements() {
   const frameName = "iframe.results-detail__iframe";
-  
+
 
   // waitForEl("#rs_AbnormalWarning_txt0-0", function(el) {
   //   el.html("&nbsp");
   // }, 100);
-  
 
-    // Filter results
+
+  // Filter results
   //      
   // Review to zero
-  waitForElInFrame(frameName, "#resultsNeedReview-0", function(el) {
+  waitForElInFrame(frameName, "#resultsNeedReview-0", function (el) {
     el.find(".qd-filter-panel__numeric-value").html(0);
   }, 100);
 
   // Expected to 9
-  waitForElInFrame(frameName, "#resultsExpectedRange-0", function(el) {
+  waitForElInFrame(frameName, "#resultsExpectedRange-0", function (el) {
     el.find(".qd-filter-panel__numeric-value").html(9);
   }, 100);
 
 
   // Test selectors
-  waitForElInFrame(frameName, "div.multiplepanel", function(el) {
+  waitForElInFrame(frameName, "div.multiplepanel", function (el) {
 
     const mpDiv = el.find("#9479082000160");
 
@@ -66,7 +71,7 @@ function waitForElements() {
 
 
   // Test details
-  waitForElInFrame(frameName, "#cit-column-report-detail-profile-0", function(el) {
+  waitForElInFrame(frameName, "#cit-column-report-detail-profile-0", function (el) {
     const detailDiv = el.find("div[data-result-id=\"9479082000160\"]");
 
     // Remove Out of Range
@@ -80,11 +85,21 @@ function waitForElements() {
       .removeClass("abnormalText")
       .addClass("seeDetailsText")
       .html("<span>NEGATIVE</span> <span>ng/mL</span>");
+
+    // Remove Out of Range
+    detailDiv.find("div.abnormalEntry")
+      .removeClass("abnormalEntry")
+      .addClass("abnormalOverrideEntry")
+      .html("");
+
+    // Add negative
+    detailDiv.find("div.patternGraphBox")
+      .html("<span>NEGATIVE</span>");
   }, 100);
 
 
   // Print
-  waitForElInFrame(frameName, "#print-profile-0", function(el) {
+  waitForElInFrame(frameName, "#print-profile-0", function (el) {
     const printDiv = el.find("div[data-print-result-id=\"9479082000160\"]");
 
     // Remove alert icon
@@ -100,11 +115,11 @@ function waitForElements() {
       .removeClass("abnormalText")
       .addClass("seeDetailsText")
       .html("<div class=\"value1\">NEGATIVE</div>");
-  }, 100);  
-  
+  }, 100);
+
 }
 
-function waitForElInFrame(frame, selector, callback, maxtries = false, interval = 100) { 
+function waitForElInFrame(frame, selector, callback, maxtries = false, interval = 100) {
   const poller = setInterval(() => {
     const el = $(frame).contents().find(selector);
     const retry = maxtries === false || maxtries-- > 0
@@ -117,7 +132,8 @@ function waitForElInFrame(frame, selector, callback, maxtries = false, interval 
   }, interval);
 
 }
-function waitForEl(selector, callback, maxtries = false, interval = 100) { 
+
+function waitForEl(selector, callback, maxtries = false, interval = 100) {
   const poller = setInterval(() => {
     const el = jQuery(selector);
     const retry = maxtries === false || maxtries-- > 0
@@ -131,5 +147,5 @@ function waitForEl(selector, callback, maxtries = false, interval = 100) {
 }
 
 function starter() {
- alert("Started");
+  alert("Started");
 }
