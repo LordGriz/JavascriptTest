@@ -86,16 +86,28 @@ function waitForElements() {
       .addClass("seeDetailsText")
       .html("<span>NEGATIVE</span> <span>ng/mL</span>");
 
-    // Remove Out of Range
-    detailDiv.find("div.abnormalEntry")
-      .removeClass("abnormalEntry")
-      .addClass("abnormalOverrideEntry")
-      .html("");
+    const historyDiv = el.find("div[data-history-result-id=\"9479082000160\"]");
 
-    // Add negative
-    detailDiv.find("div.patternGraphBox")
-      .html("<span>NEGATIVE</span>");
+    historyDiv.html("");
+
+    // historyDiv.find("div.abnormalEntry")
+    //   .removeClass("abnormalEntry")
+    //   .addClass("abnormalOverrideEntry");
   }, 100);
+
+  // waitForElInFrame(frameName, "#cit-column-report-detail-profile-0", function (el) {
+  //   const detailDiv = el.find("div[data-history-result-id=\"9479082000160\"]");
+
+  //   // Remove Out of Range
+  //   detailDiv.find("div.abnormalEntry")
+  //     .removeClass("abnormalEntry")
+  //     .addClass("abnormalOverrideEntry")
+  //     .html("");
+
+  //   // Add negative
+  //   detailDiv.find("div.patternGraphBox")
+  //     .html("<span>NEGATIVE</span>");
+  // }, 100);
 
 
   // Print
