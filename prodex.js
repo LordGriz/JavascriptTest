@@ -74,7 +74,9 @@ function waitForElements() {
 
         el.find("div.abnormalEntry")
           .removeClass("abnormalEntry")
-          .addClass("abnormalOverrideEntry")
+          .addClass("abnormalOverrideEntry");
+
+        el.find("#patternGraphBox-9479082000160-0")
           .attr("data-hasqtip", "")
           .attr("aria-describedby", "");
 
