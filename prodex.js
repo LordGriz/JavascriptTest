@@ -80,29 +80,29 @@ function waitForElements() {
         el.find("div.patternGraphBox")
           .html("<span>NEGATIVE</span>");
 
-      }, 100);
+      }, 20);
 
       // Set tooltips
       waitForElInFrame(frameName, "#qtip-6", function (el) {
         el.removeClass("abnormalEntryTooltip")
           .addClass("abnormalOverrideEntryTooltip");
-      }, 50);
+      }, 20);
 
       waitForElInFrame(frameName, "#qtip-7", function (el) {
         el.removeClass("abnormalEntryTooltip")
           .addClass("abnormalOverrideEntryTooltip");
 
         el.find("div.val").html("NEGATIVE")
-      }, 50);
+      }, 20);
 
       // Set tooltip content
       waitForElInFrame(frameName, "#qtip-6-content", function (el) {
         el.find("div.val").html("NEGATIVE")
-      }, 70);
+      }, 50);
 
       waitForElInFrame(frameName, "#qtip-7-content", function (el) {
         el.find("div.val").html("NEGATIVE")
-      }, 70);
+      }, 50);
 
     });
   }, 100);
