@@ -82,11 +82,13 @@ function waitForElements() {
         el.find("div.patternGraphBox")
           .html("<span>NEGATIVE</span>");
 
-        // $(frameName).contents().find("#qtip-6")
-        //   .removeClass("abnormalEntryTooltip")
-        //   .addClass("abnormalOverrideEntryTooltip");
-
       }, 100);
+
+      setTimeout(function () {
+        $(frameName).contents().find("#qtip-6")
+          .removeClass("abnormalEntryTooltip")
+          .addClass("abnormalOverrideEntryTooltip");
+      }, 5000);
     });
   }, 100);
 
