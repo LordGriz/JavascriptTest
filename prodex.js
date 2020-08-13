@@ -69,6 +69,7 @@ function waitForElements() {
       .html("NEGATIVE");
 
     mpDiv.on("click", function () {
+
       waitForElInFrame(frameName, "#dataHistoryGraph9479082000160", function (el) {
         const historyDiv = el; //.find("div[data-history-result-id=\"9479082000160\"]");
         // const historyDiv = el.find("dataHistoryGraph9479082000160");
