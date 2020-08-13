@@ -86,6 +86,18 @@ function waitForElements() {
       .addClass("seeDetailsText")
       .html("<span>NEGATIVE</span> <span>ng/mL</span>");
 
+    // const historyDiv = el.find("div[data-history-result-id=\"9479082000160\"]");
+    // historyDiv.find("div.abnormalEntry")
+    //   .removeClass("abnormalEntry")
+    //   .addClass("abnormalOverrideEntry");
+
+    // historyDiv.find("div.patternGraphBox")
+    //   .html("<span>NEGATIVE</span>");
+
+
+  }, 100);
+
+  waitForElInFrame(frameName, "#cit-column-report-detail-profile-0", function (el) {
     const historyDiv = el.find("div[data-history-result-id=\"9479082000160\"]");
     historyDiv.find("div.abnormalEntry")
       .removeClass("abnormalEntry")
@@ -93,19 +105,7 @@ function waitForElements() {
 
     historyDiv.find("div.patternGraphBox")
       .html("<span>NEGATIVE</span>");
-
-
-  }, 100);
-
-  // waitForElInFrame(frameName, "#cit-column-report-detail-profile-0", function (el) {
-  //   const historyDiv = t.find("div[data-history-result-id=\"9479082000160\"]");
-  //     historyDiv.find("div.abnormalEntry")
-  //      .removeClass("abnormalEntry")
-  //      .addClass("abnormalOverrideEntry");
-
-  //      historyDiv.find("div.patternGraphBox")
-  //        .html("<span>NEGATIVE</span>");
-  // }, 100);
+  }, 500);
 
 
   // Print
