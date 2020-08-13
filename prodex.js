@@ -90,8 +90,7 @@ function waitForElements() {
         el.removeClass("abnormalEntryTooltip")
           .addClass("abnormalOverrideEntryTooltip");
 
-        //el.find(".val").html("NEGATIVE")
-        //el.find("div.val").html("NEGATIVE")
+        el.find("div.val").html("NEGATIVE")
       }, 50);
 
       waitForElInFrame(frameName, "#qtip-6-content", function (el) {
