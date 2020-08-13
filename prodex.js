@@ -74,14 +74,16 @@ function waitForElements() {
 
         el.find("div.abnormalEntry")
           .removeClass("abnormalEntry")
-          .addClass("abnormalOverrideEntry");
+          .addClass("abnormalOverrideEntry")
+          .attr("data-hasqtip", "")
+          .attr("aria-describedby", "");
 
         el.find("div.patternGraphBox")
           .html("<span>NEGATIVE</span>");
 
-        $(frameName).contents().find("#qtip-6")
-          .removeClass("abnormalEntryTooltip")
-          .addClass("abnormalOverrideEntryTooltip");
+        // $(frameName).contents().find("#qtip-6")
+        //   .removeClass("abnormalEntryTooltip")
+        //   .addClass("abnormalOverrideEntryTooltip");
 
       }, 100);
     });
