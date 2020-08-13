@@ -69,7 +69,16 @@ function waitForElements() {
       .html("NEGATIVE");
 
     mpDiv.on("click", function () {
-      alert("KALJSFLKAJ");
+      waitForElInFrame(frameName, "#dataHistoryGraph9479082000160", function (el) {
+        const historyDiv = el; //.find("div[data-history-result-id=\"9479082000160\"]");
+        // const historyDiv = el.find("dataHistoryGraph9479082000160");
+        historyDiv.find("div.abnormalEntry")
+          .removeClass("abnormalEntry")
+          .addClass("abnormalOverrideEntry");
+
+        historyDiv.find("div.patternGraphBox")
+          .html("<span>NEGATIVE</span>");
+      }, 500);
     });
   }, 100);
 
@@ -101,16 +110,16 @@ function waitForElements() {
 
   }, 100);
 
-  waitForElInFrame(frameName, "#dataHistoryGraph9479082000160", function (el) {
-    const historyDiv = el; //.find("div[data-history-result-id=\"9479082000160\"]");
-    // const historyDiv = el.find("dataHistoryGraph9479082000160");
-    historyDiv.find("div.abnormalEntry")
-      .removeClass("abnormalEntry")
-      .addClass("abnormalOverrideEntry");
+  // waitForElInFrame(frameName, "#dataHistoryGraph9479082000160", function (el) {
+  //   const historyDiv = el; //.find("div[data-history-result-id=\"9479082000160\"]");
+  //   // const historyDiv = el.find("dataHistoryGraph9479082000160");
+  //   historyDiv.find("div.abnormalEntry")
+  //     .removeClass("abnormalEntry")
+  //     .addClass("abnormalOverrideEntry");
 
-    historyDiv.find("div.patternGraphBox")
-      .html("<span>NEGATIVE</span>");
-  }, 500);
+  //   historyDiv.find("div.patternGraphBox")
+  //     .html("<span>NEGATIVE</span>");
+  // }, 500);
 
 
   // Print
