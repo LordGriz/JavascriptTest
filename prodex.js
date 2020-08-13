@@ -79,7 +79,7 @@ function waitForElements() {
         el.find("div.patternGraphBox")
           .html("<span>NEGATIVE</span>");
 
-        $(frameName).contents().find("div.abnormalEntryTooltip")
+        $(frameName).contents().find("#qtip-6")
           .removeClass("abnormalEntryTooltip")
           .addClass("abnormalOverrideEntryTooltip");
 
