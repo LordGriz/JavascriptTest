@@ -84,11 +84,14 @@ function waitForElements() {
 
       }, 100);
 
-      setTimeout(function () {
-        $(frameName).contents().find("#qtip-6")
-          .removeClass("abnormalEntryTooltip")
+      waitForElInFrame(frameName, "#qtip-6", function (el) {
+        el.removeClass("abnormalEntryTooltip")
           .addClass("abnormalOverrideEntryTooltip");
-      }, 5000);
+      }, 100);
+      waitForElInFrame(frameName, "#qtip-7", function (el) {
+        el.removeClass("abnormalEntryTooltip")
+          .addClass("abnormalOverrideEntryTooltip");
+      }, 100);
     });
   }, 100);
 
