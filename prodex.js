@@ -76,9 +76,8 @@ function waitForElements() {
           .removeClass("abnormalEntry")
           .addClass("abnormalOverrideEntry");
 
-        el.find("#patternGraphBox-9479082000160-0")
-          .attr("data-hasqtip", "")
-          .attr("aria-describedby", "");
+        el.find("#patternGraphBox-9479082000160-0").attr("data-hasqtip", "");
+        el.find("#patternGraphBox-9479082000160-0").attr("aria-describedby", "");
 
         el.find("div.patternGraphBox")
           .html("<span>NEGATIVE</span>");
