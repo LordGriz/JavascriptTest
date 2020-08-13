@@ -67,6 +67,10 @@ function waitForElements() {
       .removeClass("abnormalText")
       .addClass("seeDetailsText")
       .html("NEGATIVE");
+
+    mpDiv.on("click", function () {
+      alert("KALJSFLKAJ");
+    });
   }, 100);
 
 
