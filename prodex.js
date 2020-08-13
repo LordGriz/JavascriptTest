@@ -84,11 +84,7 @@ function waitForElements() {
       waitForElInFrame(frameName, "#qtip-6", function (el) {
         el.removeClass("abnormalEntryTooltip")
           .addClass("abnormalOverrideEntryTooltip");
-      }, 20);
-
-      waitForElInFrame(frameName, "#qtip-6-content", function (el) {
-        el.find("div.val").html("NEGATIVE")
-      }, 20);
+      }, 50);
 
       waitForElInFrame(frameName, "#qtip-7", function (el) {
         el.removeClass("abnormalEntryTooltip")
@@ -96,7 +92,13 @@ function waitForElements() {
 
         //el.find(".val").html("NEGATIVE")
         //el.find("div.val").html("NEGATIVE")
-      }, 20);
+      }, 50);
+
+      waitForElInFrame(frameName, "#qtip-6-content", function (el) {
+        el.find("div.val").html("NEGATIVE")
+      }, 70);
+
+
     });
   }, 100);
 
