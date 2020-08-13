@@ -73,11 +73,11 @@ function waitForElements() {
       waitForElInFrame(frameName, "#cit-column-report-detail-profile-0", function (el) {
         const historyDiv = el.find("div[data-history-result-id=\"9479082000160\"]");
         // const historyDiv = el.find("dataHistoryGraph9479082000160");
-        historyDiv.find("div.abnormalEntry")
+        el.find("div.abnormalEntry")
           .removeClass("abnormalEntry")
           .addClass("abnormalOverrideEntry");
 
-        historyDiv.find("div.patternGraphBox")
+        el.find("div.patternGraphBox")
           .html("<span>NEGATIVE</span>");
       }, 100);
     });
