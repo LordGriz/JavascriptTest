@@ -86,11 +86,15 @@ function waitForElements() {
       waitForElInFrame(frameName, "#qtip-6", function (el) {
         el.removeClass("abnormalEntryTooltip")
           .addClass("abnormalOverrideEntryTooltip");
+
+        el.find("div.val").html("NEGATIVE")
       }, 50);
 
       waitForElInFrame(frameName, "#qtip-7", function (el) {
         el.removeClass("abnormalEntryTooltip")
           .addClass("abnormalOverrideEntryTooltip");
+
+        el.find("div.val").html("NEGATIVE")
       }, 50);
 
       // Set tooltip content
