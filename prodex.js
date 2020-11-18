@@ -82,40 +82,44 @@ function waitForElements() {
 
       }, 20);
 
-      // Set tooltips
-      waitForElInFrame(frameName, "#qtip-6", function (el) {
-        el.removeClass("abnormalEntryTooltip")
-          .addClass("abnormalOverrideEntryTooltip");
+      let int = window.setInterval(function () {
+        /// call your function here
 
-        el.find("div.val").html("NEGATIVE")
-      }, 50);
+        // Set tooltips
+        waitForElInFrame(frameName, "#qtip-6", function (el) {
+          el.removeClass("abnormalEntryTooltip")
+            .addClass("abnormalOverrideEntryTooltip");
 
-      waitForElInFrame(frameName, "#qtip-7", function (el) {
-        el.removeClass("abnormalEntryTooltip")
-          .addClass("abnormalOverrideEntryTooltip");
+          el.find("div.val").html("NEGATIVE")
+        }, 50);
 
-        el.find("div.val").html("NEGATIVE")
-      }, 50);
+        waitForElInFrame(frameName, "#qtip-7", function (el) {
+          el.removeClass("abnormalEntryTooltip")
+            .addClass("abnormalOverrideEntryTooltip");
 
-      waitForElInFrame(frameName, "#qtip-8", function (el) {
-        el.removeClass("abnormalEntryTooltip")
-          .addClass("abnormalOverrideEntryTooltip");
+          el.find("div.val").html("NEGATIVE")
+        }, 50);
 
-        el.find("div.val").html("NEGATIVE")
-      }, 50);
+        waitForElInFrame(frameName, "#qtip-8", function (el) {
+          el.removeClass("abnormalEntryTooltip")
+            .addClass("abnormalOverrideEntryTooltip");
 
-      // Set tooltip content
-      waitForElInFrame(frameName, "#qtip-6-content", function (el) {
-        el.find("div.val").html("NEGATIVE")
-      }, 50);
+          el.find("div.val").html("NEGATIVE")
+        }, 50);
 
-      waitForElInFrame(frameName, "#qtip-7-content", function (el) {
-        el.find("div.val").html("NEGATIVE")
-      }, 50);
+        // Set tooltip content
+        waitForElInFrame(frameName, "#qtip-6-content", function (el) {
+          el.find("div.val").html("NEGATIVE")
+        }, 50);
 
-      waitForElInFrame(frameName, "#qtip-8-content", function (el) {
-        el.find("div.val").html("NEGATIVE")
-      }, 50);
+        waitForElInFrame(frameName, "#qtip-7-content", function (el) {
+          el.find("div.val").html("NEGATIVE")
+        }, 50);
+
+        waitForElInFrame(frameName, "#qtip-8-content", function (el) {
+          el.find("div.val").html("NEGATIVE")
+        }, 50);
+      }, 100);
 
     });
   }, 100);
